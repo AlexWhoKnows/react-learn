@@ -1,26 +1,33 @@
 import React, { useState } from 'react'
+import PostItem from './components/PostItem';
+import PostList from './components/PostList';
+import './styles/App.css'
 
 
 function App() {
 
-  const [likes, setLikes] = useState(0)
+    const [posts, setPosts] = useState([
+        {id: 1, title: 'JavaScript', body: 'Description'},
+        {id: 2, title: 'JavaScript 1', body: 'Description'},
+        {id: 3, title: 'JavaScript 2', body: 'Description'},
+        {id: 4, title: 'JavaScript 3', body: 'Description'},
+        {id: 5, title: 'JavaScript 4', body: 'Description'},
+    ])
 
-  function increment() {
-      setLikes(likes + 1)
-  }
+    const [posts2, setPosts2] = useState([
+        {id: 1, title: 'Python', body: 'Description'},
+        {id: 2, title: 'Python 1', body: 'Description'},
+        {id: 3, title: 'Python 2', body: 'Description'},
+        {id: 4, title: 'Python 3', body: 'Description'},
+        {id: 5, title: 'Python 4', body: 'Description'},
+    ])
 
-  function decrement() {
-    setLikes(likes - 1)
-
-  }
-
-  return (
-    <div className="App">
-      <h1>{likes}</h1>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-    </div>
-  );
+    return (
+      <div className="App">
+          <PostList posts={posts} title="Посты про JS" />
+          <PostList posts={posts2} title="Посты про Python" />
+      </div>
+    );
 }
 
 export default App;
